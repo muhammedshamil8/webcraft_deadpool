@@ -23,28 +23,28 @@
                 </div>
                 <ul>
                     <li>
-                        <a href="#" >
+                        <a href="#">
 
-                        Home
-                        
-                    </a>
+                            Home
+
+                        </a>
                     </li>
                     <li>
-                        <a href="#about" >
-                        About Me
-                    </a>
+                        <a href="#about">
+                            About Me
+                        </a>
                     </li>
                     <li>
-                        <a href="#contact" >
-                        Contact
+                        <a href="#contact">
+                            Contact
                         </a>
                     </li>
                 </ul>
             </nav>
         </header>
-        <!-- <div class="about_btn">
-            About Me 
-        </div> -->
+        <div class="about_btn">
+            <a href="#about"> About Me </a>
+        </div>
         <div class="overlay2" />
     </section>
     <!-- about me section -->
@@ -72,8 +72,9 @@
 
     <section class="content_section">
         <div class="content_section_child">
-            <div class="image">
-                <img src="./assets/deadpool_bgblack.jpg" class="image_1" />
+            <div class="image_stack">
+                <img src="./assets/deadpool_bgblack.jpg" class="image_top" alt="Deadpool Background" />
+                <img src="./assets/black.jpeg" class="image_bottom" alt="Black Background" />
             </div>
             <div class="content">
                 <h1>Deadpool</h1>
@@ -88,14 +89,17 @@
             </div>
         </div>
     </section>
+    <div class="banner">
+
 
     <section class="image_section">
         <div class="overlay" />
     </section>
+        <section class="banner_section">
+            <div class="banner_card banner_card_2"></div>
+            <div class="banner_card banner_card_1"></div>
+        </section>
 
-    <section class="banner_section">
-        <div class="banner_card_2"></div>
-    </section>
     <section class="contact_section" id="contact">
         <h2>Hire Me</h2>
         <form class="form">
@@ -108,12 +112,17 @@
             </button>
         </form>
     </section>
+</div>
 
     <footer>
-        <div class="blur" />
-        <span>
-            All rights reserved &copf; 2025
-        </span>
+        <div class="footer_content">
+            <span>&copy; 2025 All Rights Reserved.</span>
+            <div class="social_links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
     </footer>
 </body>
 

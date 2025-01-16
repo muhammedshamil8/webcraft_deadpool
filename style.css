@@ -10,9 +10,10 @@ body {
     background-color: rgb(175, 28, 28);
     display: flex;
     flex-direction: column;
-
+    overflow: hidden;
+    overflow-y: auto !important;
+    max-width: 100%;
 }
-
 
 
 nav {
@@ -20,11 +21,23 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 30px;
+    padding-bottom: 10px;
     position: fixed;
     width: 100%;
     z-index: 100;
-}
+    background-color: rgba(0, 0, 0, 0.226);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    backface-visibility: blur(100px);
+    /* display: hidden !important; */
 
+
+}
+.nav_logo {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+}
 nav>ul {
     list-style: none;
     font-weight: 600;
@@ -50,7 +63,7 @@ li>a {
     text-shadow: rgb(175, 28, 28) 1px 1px 1px;
 }
 
-li> a:hover {
+li>a:hover {
     color: brown;
 }
 
@@ -58,24 +71,19 @@ li> a:hover {
     background-image: url('./assets/hero.jpeg');
     background-size: cover;
     background-position: center;
-    min-height: 800px;
+    min-height: 900px;
 }
 
 .overlay2 {
     background-color: rgba(0, 0, 0, 0.5);
-    min-height: 800px;
+    min-height: 900px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.nav_logo {
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
-    cursor: pointer;
-}
+
 
 .nav_logo:hover {
     animation: spin 1s infinite;
@@ -88,6 +96,45 @@ li> a:hover {
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.about_btn {
+    background-color: rgb(119, 15, 15);
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+    animation: bounce 1s infinite;
+    position: absolute;
+    bottom: 200px;
+    left: 45%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.about_btn>a {
+    color: white;
+    text-decoration: none;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
 
@@ -134,53 +181,62 @@ li> a:hover {
     font-size: 20px;
 }
 
-
-
 .content_section {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 20px;
-
     color: white;
-
 }
 
 .content_section_child {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
     max-width: 800px;
     margin: auto;
 }
 
-.content_section .image {
-    border: 1px solid white;
-    max-width: 300px;
-    min-width: 300px;
-    max-height: 300px;
-    min-height: 300px;
+.image_stack {
     position: relative;
+    width: 350px;
+    min-width: 350px;
+    height: 300px;
+    flex: 1;
 }
 
-.content_section .image>img {
-    max-width: 300px;
-    max-height: 300px;
-    min-width: 300px;
-    min-height: 300px;
+.image_stack img {
+    width: 300px;
+    height: 300px;
     position: absolute;
-    left: 0px;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid white;
+    transition: all 0.3s ease-in-out;
 }
 
-.contact_section .image_1 {
-    transform: rotate(90deg);
-    z-index: 3;
+.image_top {
+    transform: rotate(-5deg) translateY(-10px);
+    z-index: 2;
 }
 
-.contact_section .image_2 {
-    transform: rotate(45deg);
+.image_bottom {
+    transform: rotate(2deg) translateY(10px);
+    top: -15px;
     z-index: 1;
+}
+
+.image_stack:hover .image_top {
+    transform: rotate(0deg) translateY(0);
+    top: 0px;
+}
+
+.image_stack:hover .image_bottom {
+    transform: rotate(0deg) translateY(0);
+    top: 0px;
 }
 
 .image_section {
@@ -189,7 +245,7 @@ li> a:hover {
     background-image: url('./assets//deadpool_me.jpg');
     background-repeat: no-repeat;
     background-position: center;
-
+    filter: blur(2px);
 }
 
 .deadpool_me {
@@ -244,50 +300,125 @@ footer>span {
     nav {
         display: hidden;
     }
-
+    .nav_logo {
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+    }
+   
     nav>ul {
         display: hidden;
+        font-size: 10px;
+
+    }
+    .image_stack {
+        position: relative;
+        width: 350px;
+        min-height: 350px;
+        height: 300px;
+        flex: 1;
+    }
+    
+    .about_head h1 {
+        font-size: 60px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .hero {
+        background-image: url('./assets/hero.jpeg');
+        background-size: cover;
+        background-position: center;
+        min-height: 300px;
+    }
+    
+    .overlay2 {
+        background-color: rgba(0, 0, 0, 0.5);
+        min-height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .about_btn {
+        bottom: 640px;
+        font-size: 10px;
+        width: 140px;
+        left: 35%;
+    }
+    .about_head>.about_img {
+        position: absolute;
+        top: -85px;
+        right: -40px;
+        max-height: 120px;
+    }
+    .banner_card {
+        position: absolute;
+        width: 140%;
+        height: 40px;
     }
 }
 
 /* banner section */
 
-.banner_section {
+.banner{
     overflow: hidden;
-    position: relative;
-    height: 200px;
+    overflow-y: visible !important;
 }
-
-.banner_card_2 {
-    background-color: white;
-    background-image: url('./assets/name.jpeg');
-    height: 100px;
-    width: 130%;
-    left: -50px;
-    position: absolute;
-    transform: rotate(-5deg);
-    animation: slide 1s linear infinite;
+.banner_section {
+    overflow-y: visible;
+    position: relative;
+    height: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+   
+}
+
+.banner_card {
+    position: absolute;
+    width: 140%;
+    height: 100px;
+    background-color: white;
+    /* background-size: cover; */
+    background-position: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transform: rotate(-5deg);
+}
+
+.banner_card_2 {
+    background-image: url('./assets/name.jpeg');
+    z-index: 2;
+    animation: slide 7s linear infinite;
+
+}
+
+.banner_card_1 {
+    background-image: url('./assets/dead_sleep.png');
+    z-index: 1;
+    transform: rotate(5deg);
+    animation: slide2 7s linear infinite;
 }
 
 @keyframes slide {
     0% {
-        transform: translateX(0px);
-    }
-
-    50% {
-        transform: translateX(-100px);
+        transform: translateX(-100px) rotate(-5deg);
     }
 
     100% {
-        transform: translateX(-200px);
+        transform: translateX(10px) rotate(-5deg);
     }
-
 }
 
+@keyframes slide2 {
+    0% {
+        transform: translateX(10px) rotate(7deg);
+    }
+
+    100% {
+        transform:  translateX(-100px) rotate(7deg);
+    }
+}
 
 /* contact section */
 .contact_section {
@@ -301,7 +432,8 @@ footer>span {
     padding-bottom: 20px;
     height: fit-content;
     border-radius: 20px;
-    background-color: black
+    background-color: black;
+
 }
 
 .contact_section>h2 {
@@ -313,8 +445,8 @@ footer>span {
     transform: skew(-20deg);
     margin-top: 10px;
     max-width: fit-content;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin: auto;
 }
 
@@ -324,6 +456,7 @@ footer>span {
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+
 }
 
 .form>input {
@@ -355,8 +488,42 @@ footer>span {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(175, 28, 28);
-
+    background-color: rgb(167, 22, 22);
+    transform: skew(-20deg);
     color: white;
     cursor: pointer;
+}
+
+.contact_btn {
+    background: #ff4500;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.contact_btn:hover {
+    background: #8b0c0c;
+}
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+.social_links a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
 }
